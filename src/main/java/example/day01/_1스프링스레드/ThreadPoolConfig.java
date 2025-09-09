@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
+import java.util.List;
 import java.util.concurrent.Executor;
 
 @Configuration  // 스프링 컨테이너 빈 등록 , IOC
@@ -19,5 +20,4 @@ public class ThreadPoolConfig { // class start
         executor.initialize();          // 스레드풀 초기화 : 서버를 재실행 마다 초기화
         return executor;
     }   // func end
-
 }   // class end
