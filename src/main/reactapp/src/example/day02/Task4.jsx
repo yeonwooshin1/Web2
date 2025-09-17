@@ -40,5 +40,6 @@ export default function Task4( props ){
             })
         }
     </ul>
+    총{userNumberList.length}명
     </>)
 } // func end 
