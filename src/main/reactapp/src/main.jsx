@@ -7,21 +7,40 @@ const create = createRoot( root );
 
 // ===== 최초 렌더링할 컴포넌트 ======
 // 4. 렌더링 (화면출력) 할 컴포넌트 가져오기
-// import App from './App.jsx'; 
+import App from './App.jsx'; 
 
 // 5. 컴포넌트 렌더링하기
 // create.render( <App/> );
 
 // day 01
-// import Component1 from './example/day01/Component1';
+import Component1 from './example/day01/Component1';
 
 // render은 한 번만 가능하다!
 // create.render(<Component1/>)
-// import Component2 from './example/day01/Component2';
+import Component2 from './example/day01/Component2';
 // create.render( <Component2/> )
 
-// import Component3 from './example/day01/Component3';
+import Component3 from './example/day01/Component3';
 // create.render(<Component3/>)
 
 import Task2 from './example/day01/Task2';
-create.render( <Task2 />);
+// create.render( <Task2 />);
+
+// // day 02
+import Component4 from './example/day02/Component4.jsx';
+// create.render( <Component4 /> )
+
+import Component5 from './example/day02/Component5.jsx';
+// create.render(<Component5/>);
+
+import Component6 from './example/day02/Component6.jsx';
+// create.render(<Component6/>);
+
+import Component7 from './example/day02/Component7.jsx';
+// create.render(<Component7/>);
+
+import Task3 from './example/day02/Task3.jsx';
+//create.render(<Task3/>);
+
+import Task4 from './example/day02/Task4.jsx';
+create.render(<Task4/>);
