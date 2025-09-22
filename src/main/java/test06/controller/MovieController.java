@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import test06.model.dto.DeleteDto;
 import test06.model.dto.MovieDto;
 import test06.service.MovieService;
 
@@ -29,25 +30,24 @@ public class MovieController {  // class start
 
     // 2. 글 삭제
     @DeleteMapping()
-    public ResponseEntity<Boolean> reviewDelete(@RequestParam int mno) {
-        boolean result = movieService.reviewDelete(mno);
+    public ResponseEntity<Boolean> reviewDelete(@RequestBody DeleteDto dto ) {
+        boolean result = movieService.reviewDelete(dto);
 
         return ResponseEntity.status(200).body(result);
     }   // func end
 
     // 3. 글 전체 조회 + 검색 조회
     @GetMapping("/total")
-    public ResponseEntity<List<MovieDto>> reviewTotalView(@RequestParam String Keyword ) {
-        List<MovieDto> result = movieService.reviewTotalView(Keyword);
+    public ResponseEntity<List<MovieDto>> reviewTotalView(@RequestParam(required = false, defaultValue = "") String keyword ) {
+        List<MovieDto> result = movieService.reviewTotalView(keyword);
 
         return ResponseEntity.status(200).body(result);
     }   // func end
 
     // 4. 글 개별 조회
     @GetMapping()
-    public ResponseEntity<MovieDto> reviewView(@RequestBody MovieDto dto) {
-        MovieDto result = movieService.reviewView(dto);
-
+    public ResponseEntity<MovieDto> reviewView(@RequestParam int mno) {
+        MovieDto result = movieService.reviewView(mno);
 
         return ResponseEntity.status(200).body(result);
     }   // func end

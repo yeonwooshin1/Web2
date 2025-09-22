@@ -3,6 +3,7 @@ package test06.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import test06.model.dto.DeleteDto;
 import test06.model.dto.MovieDto;
 import test06.model.mapper.MovieMapper;
 
@@ -19,39 +20,34 @@ public class MovieService { // class start
     // 1. 글 등록
 
     public int reviewWrite( MovieDto dto ) {
-        int result = movieMapper.reviewWrite(dto);
-
-        return
+        return movieMapper.reviewWrite(dto);
     }   // func end
 
 
     // 2. 글 삭제
 
-    public boolean reviewDelete( int mno) {
-        boolean result = movieMapper.reviewDelete(mno);
+    public boolean reviewDelete( DeleteDto dto) {
+        int result = movieMapper.checkPassword(dto);
 
-        return
+        if(result > 0) return movieMapper.reviewDelete(dto.getMno());
+        else return false;
+
     }   // func end
 
     // 3. 글 전체 조회 + 검색 조회
 
-    public List<MovieDto> reviewTotalView(String Keyword) {
+    public List<MovieDto> reviewTotalView(String keyword) {
 
-
-        List<MovieDto> result1 = movieMapper.reviewTotalView();
-        List<MovieDto> result2 = movieMapper.reviewKeywordView(Keyword);
-
-        return
+        if(keyword != null && !keyword.isEmpty()){
+            return movieMapper.reviewKeywordView(keyword);
+        }   // if end
+        return movieMapper.reviewTotalView();
     }   // func end
 
     // 4. 글 개별 조회
 
-    public MovieDto reviewView(MovieDto dto) {
-
-
-        MovieDto result = movieMapper.reviewView(dto);
-
-        return
+    public MovieDto reviewView(int mno) {
+        return movieMapper.reviewView(mno);
     }   // func end
 
 

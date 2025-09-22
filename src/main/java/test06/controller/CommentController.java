@@ -5,7 +5,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import test06.model.dto.CommentDto;
+import test06.model.dto.DeleteDto;
 import test06.service.CommentService;
+
+import java.util.List;
 
 @RestController
 @AllArgsConstructor
@@ -18,8 +21,8 @@ public class CommentController {
 
     // 5. 댓글 조회
     @GetMapping()
-    public ResponseEntity<CommentDto> commentView(@RequestParam int mno) {
-        CommentDto result = commentService.commentView(mno);
+    public ResponseEntity<List<CommentDto>> commentView(@RequestParam int mno) {
+        List<CommentDto> result = commentService.commentView(mno);
 
 
         return ResponseEntity.status(200).body(result);
@@ -27,16 +30,16 @@ public class CommentController {
 
     // 6. 댓글 작성
     @PostMapping()
-    public ResponseEntity<Integer> commentWrite(@RequestBody CommentDto dto) {
-        int result = commentService.commentWrite(dto);
+    public ResponseEntity<Boolean> commentWrite(@RequestBody CommentDto dto) {
+        boolean result = commentService.commentWrite(dto);
 
         return ResponseEntity.status(200).body(result);
     }   // func end
 
     // 7. 댓글 삭제
     @DeleteMapping()
-    public ResponseEntity<Boolean> commentDelete(@RequestParam int cno) {
-        boolean result = commentService.commentDelete(cno);
+    public ResponseEntity<Boolean> commentDelete(@RequestBody DeleteDto dto) {
+        boolean result = commentService.commentDelete(dto);
 
         return ResponseEntity.status(200).body(result);
     }   // func end

@@ -7,7 +7,6 @@ const create = createRoot( root );
 
 // ===== 최초 렌더링할 컴포넌트 ======
 // 4. 렌더링 (화면출력) 할 컴포넌트 가져오기
-import App from './App.jsx'; 
 
 // 5. 컴포넌트 렌더링하기
 // create.render( <App/> );
@@ -64,4 +63,7 @@ import Component12 from './example/day04/Component12.jsx';
 // create.render(<Component12/>);
 
 import Task6 from './example/day04/Task6.jsx';
-create.render(<Task6/>);
+// create.render(<Task6/>);
+
+import Movie from './test/Movie.jsx';
+create.render(<Movie/>);
