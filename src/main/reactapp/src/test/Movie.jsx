@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { BrowserRouter, Link, Route, Routes, useNavigate, useParams } from "react-router";
 
+
 const Main = (props) => {
     return (<>
         <h3>여기는 메인페이지입니다. 과정형 평가 6 입니다~ </h3>    

@@ -11,7 +11,6 @@ import { useEffect, useRef, useState } from "react"
 export default function Component11 ( props ) {
     
     // [1] 렌더링 하지 않고 데이터를 참조하는 훅 vs useState
-
     const inputRef = useRef( null ) // 1. import { useRef } from "react" 또는 자동완성
                                     // 2. userRef( 초기값 )
     
