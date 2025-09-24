@@ -42,3 +42,4 @@ export default userSlice.reducer // 현재 정의한 리듀서(reducers)들을 s
 //    예: login(payload) => { type: "user/login", payload }
 // → 컴포넌트에서 dispatch할 때는 이 action creator를 import해서 사용해야 함.
 export const { login , logout } = userSlice.actions
+
