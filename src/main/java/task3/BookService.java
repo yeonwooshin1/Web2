@@ -1,4 +1,4 @@
-package 실습3;
+package task3;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -25,7 +25,7 @@ public class BookService {  // class start
             // 타입 변환 시 int 값이 아닐 경우 예외 던지기 -> 트렌젝션
             throw new IllegalArgumentException(" bookId가 정수가 아닌 값으로 인한 예외 던지기");
         }   // catch end
-        String member = (String) rentMap.get("member");
+        String member = String.valueOf(rentMap.get("member"));
 
         int result =  bookMapper.rentBook(id);
         int result2 = bookMapper.setRentalLog(id , member);

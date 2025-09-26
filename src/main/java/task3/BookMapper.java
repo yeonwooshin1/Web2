@@ -1,4 +1,4 @@
-package 실습3;
+package task3;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
