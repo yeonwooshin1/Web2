@@ -1,6 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { purchase , deleteItem } from "../store/cartSlice"
 import { useDispatch , useSelector } from "react-redux"
+import * as React from 'react';
+import Table from '@mui/joy/Table';
+import Button from '@mui/joy/Button';
+import Sheet from '@mui/joy/Sheet';
 
 
 export default function CartPage (props ) {
@@ -46,22 +50,30 @@ export default function CartPage (props ) {
         else { navigate("/");}          // 이동 한다고 하면 이동~ 
     }   // onClick end
 
+
+    const [stripe, setStripe] = React.useState('odd');
+
     return (<>
         <h3> 장바구니 </h3>
-        <table>
-            <thead>
-                <tr><th>음료 이름</th><th>가격</th><th>수량</th><th>비고</th></tr>
-            </thead>
-            <tbody>
-                {cartList.map(item => (
-                    <tr key={item.id}><td>{item.name}</td><td>{item.price} 원</td><td>{item.quantity} 개</td><td><button onClick={() => del(item.id)}>삭제</button></td></tr>
-                ))}
-            </tbody>
-        </table>
-
+        <Sheet style={{ width : "30%"}}>
+            <Table  hoverRow aria-label="striped table" stripe={stripe} size="sm">
+                <thead>
+                    <tr>
+                        <th>음료 이름</th>
+                        <th>가격&nbsp;(원)</th>
+                        <th>수량&nbsp;(개)</th>
+                        <th>비고</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {cartList.map(item => (
+                                <tr key={item.id}><td>{item.name}</td><td>{item.price} 원</td><td>{item.quantity} 개</td><td><Button style = {{ width : "60px"}}color="neutral"  variant="outlined" onClick={() => del(item.id)}>삭제</Button></td></tr>
+                            ))}
+                </tbody>
+            </Table>
+        </Sheet>
         <h5> 총 가격 : {totalQty()} 원</h5> 
 
-        <button onClick={buyItem}> 구매하기 </button>
-
+        <Button color="neutral" variant="outlined" disabled={cartList.length === 0} onClick={buyItem}> 구매하기 </Button>
     </>)
 }   
