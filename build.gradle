@@ -47,6 +47,9 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-aop'
     // 레디스
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    // bcrypt
+    implementation 'org.springframework.security:spring-security-crypto:6.4.4'
+
 }
 
 tasks.named('test') {
